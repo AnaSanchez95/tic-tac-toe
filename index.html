@@ -12,7 +12,36 @@
     <header>
         <h1>Tic Tac Toe</h1>
     </header>
-    <div class="main-content">
+
+    <section class="choose-player">
+          
+        <h2>Choose</h2>
+
+        <div id="players">
+
+            <div id="player-1">
+                <img class="cross-image" src="./assets/cruz2.png" alt="">                
+                <button id="player-1-btn">Player</button>
+                <button id="bot-1-btn">Bot</button>
+            </div>
+
+            <div>
+                <h2>Vs</h2>
+            </div>
+
+            <div id="player-2">
+                <img class="circle-image" src="./assets/Circulo.png" alt="">
+                <button id="player-2-btn">Player</button>
+                <button id="bot-2-btn">Bot</button>
+            </div>
+
+        </div>        
+
+        <button id="start-game-btn">Start Game!</button>  
+
+    </section>
+
+    <section class="main-content">
         <div class="game-board">
             <div class="game-square"></div>
             <div class="game-square"></div>
@@ -31,7 +60,7 @@
             <div class="score-image"></div>
             <button class="restart">Restart</button>
         </div>
-    </div>
+    </section>
     <footer>
         <p>Dev by Ana Sánchez</p>
     </footer>
