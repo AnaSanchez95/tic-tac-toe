@@ -10,6 +10,76 @@ header h1{
     color: white;
 }
 
+.choose-player{
+    height: 70vh;
+    border-style: double;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    color: white;
+    font-size: 2.5rem;
+}
+.choose-player #player-1, #player-2 {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    background: transparent;
+    border-style: none;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px rgb(237, 228, 255);
+}
+#players {
+    display: flex;
+    gap: 50px;
+    align-items: center;    
+}
+
+#player-1 input[type="text"], #player-2 input[type="text"]{
+    height: 25px;
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    border-radius: 15px;
+    border-style: dashed;
+    border-color: white;
+    padding: 2px;
+    padding-left: 10px;
+}
+#player-1 input[type="text"]::placeholder, #player-2 input[type="text"]::placeholder{
+    color: white;
+    font-size: 20px;
+}
+#bot-1-btn,#bot-2-btn, #player-1-btn, #player-2-btn {
+    background-color: transparent;
+    border-radius: 15px;
+    border-style: dashed;
+    border-color: white;
+    color: white;
+    font-size: 20px;
+}
+
+#bot-1-btn:hover,#bot-2-btn:hover, #player-1-btn:hover, #player-2-btn:hover{
+    background-color: rgb(223, 205, 249);
+}
+
+#start-game-btn{
+    background-color: transparent;
+    width: 25vw;
+    height: 5vh;
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    border-radius: 15px;
+    border-style: none;
+    box-shadow: 0px 0px 6px rgb(223, 205, 249);
+}
+#start-game-btn:hover{
+    background-color: rgb(223, 205, 249);
+}
+
 .main-content{
     height: 70vh;
     border-style: double;
@@ -44,12 +114,13 @@ header h1{
     text-align: center;    
 }
 .score-board h2{
-    color: rgb(208, 177, 255);
+    color: white;
     font-size: 2.6rem;
     font-weight: 700;
     text-shadow: 0px 0px 2px rgb(114, 98, 98), 0px 0px 5px rgb(114, 98, 98);
 }
 .score-board p{
+    color: white;
     font-size: 1.8rem;
 }
 .score-board .restart{
@@ -60,7 +131,8 @@ header h1{
     border-style: none;
     border-radius: 15px;
     box-shadow: 0px 0px 3px rgb(87, 87, 87);
+    color: white;
 }
 .score-board .restart:hover{
-    background: linear-gradient(to bottom right, rgba(54, 54, 247, 0.25), 40%, rgba(255, 192, 203, 0.25));
+    background: rgb(223, 205, 249);
 }
