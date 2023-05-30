@@ -21,11 +21,17 @@ btnBot2.addEventListener("click", () => playerCircle("Bot-2"));
 
 
 
-const Player = (name, img) => {
+const player = (name, img) => {
     let points = 0;
     const getName = () => name;
     const getImg = () => img;
+    return{ getName }
 }
+
+const Gameboard = (() => {
+    let gameBoard = ["", "", "", "", "", "", "", "", ""]
+}
+) ()
 
 function game(){
     sectionChoosePlayer.style.display = "flex";
@@ -37,20 +43,30 @@ function startGame(){
     sectionChoosePlayer.style.display = "none";
     sectionMainContent.style.display = "flex";
 
+    const crossPlayer = document.querySelector("#crossPlayer").value;
+    const circlePlayer = document.querySelector("#circlePlayer").value;
+
+   const player1 = player(crossPlayer, "./assets/cruz2.png");
+   const player2 =  player(circlePlayer, "./assets/Circulo.png");
+   console.log(player1.getName());
 }
 
 function playerCross(player){
     divPlayerCross.innerHTML = `
         <img class="cross-image" src="./assets/cruz2.png" alt=""> 
-        <input type="text" placeholder="${player}" id="${player}">
+        <input type="text"  id="crossPlayer" value="${player}">
         `
+        btnStartGame.disabled = false;    
 }
 
 function playerCircle(player){
     divPlayerCircle.innerHTML = `
-        <img class="cross-image" src="./assets/cruz2.png" alt=""> 
-        <input type="text" placeholder="${player}" id="${player}">
+        <img class="cross-image" src="./assets/Circulo.png" alt=""> 
+        <input type="text"  id="circlePlayer" value="${player}">        
         `
+        btnStartGame.disabled = false;
 }
+
+
 
 game();
