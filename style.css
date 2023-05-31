@@ -88,8 +88,6 @@ header h1{
     justify-content: space-around;
 }
 .main-content .game-board{
-    height: 40vh;
-    width: 40vh;
     border-radius: 15px;
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
@@ -99,6 +97,8 @@ header h1{
 .game-board .game-square{
     background-color: rgba(255, 255, 255, 0.539);
     border-radius: 15px;
+    height: 180px;
+    width: 180px;
 }
 
 .game-board .game-square:hover{
@@ -112,6 +112,15 @@ header h1{
     width: 20vh;
     border-radius: 15px;
     text-align: center;    
+}
+.game-square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-board{
+    height: 170px;
+    width: 170px;    
 }
 .score-board h2{
     color: white;

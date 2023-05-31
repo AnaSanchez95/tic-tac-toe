@@ -11,6 +11,13 @@ const btnPlayer2 = document.querySelector("#player-2-btn");
 const btnBot1 = document.querySelector("#bot-1-btn");
 const btnBot2 = document.querySelector("#bot-2-btn");
 
+let gameBoard = ["", "", "", "", "", "", "", "", ""];
+
+const gameSquares = document.querySelectorAll('.game-square');
+
+let currentPlayer = null;
+let player1 = null;
+let player2 = null;
 
 btnStartGame.addEventListener("click", startGame);
 
@@ -19,26 +26,78 @@ btnPlayer2.addEventListener("click", () => playerCircle("Player-2"));
 btnBot1.addEventListener("click", () => playerCross("Bot-1"));
 btnBot2.addEventListener("click", () => playerCircle("Bot-2"));
 
+gameSquares.forEach((square) =>{
+    square.addEventListener('click', () => boxChoosen(square, currentPlayer));
+})
 
-
-const player = (name, marker) => {
+const player = (name, image) => {
     let points = 0;
     const getName = () => name;
-    const getMarker = () => marker;
-    return{ getName }
+    const getImage = () => image;
+    return{ getName, getImage }
 }
 
 const Gameboard = (() => {
-    let gameBoard = ["", "", "", "", "", "", "", "", ""];
-    playGame(gameBoard);
+    
+    return(gameBoard);
 }
 ) ()
 
-function playGame(gameBoard){
-    if(gameBoard[0] === "x" & gameBoard[1] === "x" & gameBoard[2] === "x"){
-        console.log("X gana")
+function playGame(){
+    if(gameBoard[0] === gameBoard[1] & gameBoard[1] === gameBoard[2] & gameBoard[2] != ""){
+        console.log(`${gameBoard[0]} gana`);
+        gameSquares.forEach((square) =>{
+            square.style.pointerEvents = "none";
+        })
     }
-    else if(gameBoard[0] === "x" & gameBoard[3] === "x" & gameBoard[6] === "x")
+    else if(gameBoard[0] === gameBoard[3] & gameBoard[3] === gameBoard[6] & gameBoard[6] != ""){
+        console.log(`${gameBoard[0]} gana`);
+        gameSquares.forEach((square) =>{
+            square.style.pointerEvents = "none";
+        })
+    }
+    else if(gameBoard[0] === gameBoard[4] & gameBoard[4] === gameBoard[8] & gameBoard[8] != ""){
+        console.log(`${gameBoard[0]} gana`);
+        gameSquares.forEach((square) =>{
+            square.style.pointerEvents = "none";
+        })
+    }
+    else if(gameBoard[1] === gameBoard[4] & gameBoard[4] === gameBoard[7] & gameBoard[7] != ""){
+        console.log(`${gameBoard[1]} gana`);
+        gameSquares.forEach((square) =>{
+            square.style.pointerEvents = "none";
+        })
+    }
+    else if(gameBoard[0] === gameBoard[3] & gameBoard[3] === gameBoard[6] & gameBoard[6] != ""){
+        console.log(`${gameBoard[0]} gana`);
+        gameSquares.forEach((square) =>{
+            square.style.pointerEvents = "none";
+        })
+    }
+    else if(gameBoard[2] === gameBoard[5] & gameBoard[5] === gameBoard[8] & gameBoard[8] != ""){
+        console.log(`${gameBoard[2]} gana`);
+        gameSquares.forEach((square) =>{
+            square.style.pointerEvents = "none";
+        })
+    }
+    else if(gameBoard[2] === gameBoard[4] & gameBoard[4] === gameBoard[6] & gameBoard[6] != ""){
+        console.log(`${gameBoard[2]} gana`);
+        gameSquares.forEach((square) =>{
+            square.style.pointerEvents = "none";
+        })
+    }
+    else if(gameBoard[3] === gameBoard[4] & gameBoard[4] === gameBoard[5] & gameBoard[5] != ""){
+        console.log(`${gameBoard[3]} gana`);
+        gameSquares.forEach((square) =>{
+            square.style.pointerEvents = "none";
+        })
+    }
+    else if(gameBoard[6] === gameBoard[7] & gameBoard[7] === gameBoard[8] & gameBoard[8] != ""){
+        console.log(`${gameBoard[6]} gana`);
+        gameSquares.forEach((square) =>{
+            square.style.pointerEvents = "none";
+        })
+    }
 }
 
 function game(){
@@ -54,9 +113,11 @@ function startGame(){
     const crossPlayer = document.querySelector("#crossPlayer").value;
     const circlePlayer = document.querySelector("#circlePlayer").value;
 
-   const player1 = player(crossPlayer, "./assets/cruz2.png");
-   const player2 =  player(circlePlayer, "./assets/Circulo.png");
-   console.log(player1.getName());
+   player1 = player(crossPlayer, "./assets/cruz2.png");
+   player2 =  player(circlePlayer, "./assets/Circulo.png");
+
+   console.log(player1.getName(), player2.getName());
+   currentPlayer = player1;
 }
 
 function playerCross(player){
@@ -64,7 +125,7 @@ function playerCross(player){
         <img class="cross-image" src="./assets/cruz2.png" alt=""> 
         <input type="text"  id="crossPlayer" value="${player}">
         `
-        btnStartGame.disabled = false;    
+        btnStartGame.disabled = false;            
 }
 
 function playerCircle(player){
@@ -75,6 +136,22 @@ function playerCircle(player){
         btnStartGame.disabled = false;
 }
 
-
+function boxChoosen(square, player){
+    square.innerHTML = `<img class="image-board" src="${player.getImage()}" alt=""></img>`;    
+    const squareId = square.id;
+    console.log(squareId);
+    
+    if (currentPlayer.getImage() === "./assets/cruz2.png"){
+        currentPlayer = player2;
+        gameBoard[squareId] = "x";
+    }
+    else {
+        currentPlayer = player1;
+        gameBoard[squareId] = "o";
+    }
+    square.style.pointerEvents = "none";
+    console.log(gameBoard);
+    playGame()
+}
 
 game();
