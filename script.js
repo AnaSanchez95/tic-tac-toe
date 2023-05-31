@@ -21,17 +21,25 @@ btnBot2.addEventListener("click", () => playerCircle("Bot-2"));
 
 
 
-const player = (name, img) => {
+const player = (name, marker) => {
     let points = 0;
     const getName = () => name;
-    const getImg = () => img;
+    const getMarker = () => marker;
     return{ getName }
 }
 
 const Gameboard = (() => {
-    let gameBoard = ["", "", "", "", "", "", "", "", ""]
+    let gameBoard = ["", "", "", "", "", "", "", "", ""];
+    playGame(gameBoard);
 }
 ) ()
+
+function playGame(gameBoard){
+    if(gameBoard[0] === "x" & gameBoard[1] === "x" & gameBoard[2] === "x"){
+        console.log("X gana")
+    }
+    else if(gameBoard[0] === "x" & gameBoard[3] === "x" & gameBoard[6] === "x")
+}
 
 function game(){
     sectionChoosePlayer.style.display = "flex";
