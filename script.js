@@ -11,7 +11,13 @@ const btnPlayer2 = document.querySelector("#player-2-btn");
 const btnBot1 = document.querySelector("#bot-1-btn");
 const btnBot2 = document.querySelector("#bot-2-btn");
 
-let gameBoard = ["", "", "", "", "", "", "", "", ""];
+const gameBoard = {
+    matriz:[
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+    ]
+}
 
 const gameSquares = document.querySelectorAll('.game-square');
 
@@ -42,6 +48,10 @@ const Gameboard = (() => {
     return(gameBoard);
 }
 ) ()
+
+function checkWinner(){
+    
+}
 
 function playGame(){
     if(gameBoard[0] === gameBoard[1] & gameBoard[1] === gameBoard[2] & gameBoard[2] != ""){
